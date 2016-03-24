@@ -1,8 +1,16 @@
-<ion-view>
+<ion-view title="BMI Calculator">
   <ion-content>
-    <p>Here we will have our calculator</p>
-    <p>Person: Weight {{person.weight}}, Height {{person.height}}</p>
-    <p>BMI: {{person.bmiValue}}</p>
-    <p><strong>You are {{person.bmiMessage}}</strong></p>
+    <label for="weight">Weight</label>
+    <input id="weight" type="number" class="item item-input" ng-model="data.weight">
+    <label for="height">Height</label>
+    <input id="height" type="number" class="item item-input" ng-model="data.height">
+    <button class="button button-calm" ng-click="calculateBMI()">Send</button>
+    <div ng-if="person">
+      <p>Person: Weight {{person.weight}}, Height {{person.height}}</p>
+      <p>BMI: {{person.bmiValue}}</p>
+      <p><strong>You are {{person.bmiMessage}}</strong></p>
+    </div>
+    <h4 ng-controller="AboutController">{{aboutMessage}}</h4>
+
   </ion-content>
 </ion-view>

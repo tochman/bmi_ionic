@@ -1,13 +1,17 @@
-angular.module('starter.controllers', [])
+angular.module('bmi_calculator.controllers', [])
 
-  .controller('AboutController', function () {
-
+  .controller('AboutController', function ($scope, Users) {
+    $scope.aboutMessage = "Coded by Thomas and Mazen";
+    $scope.users = Users;
   })
 
   .controller('BmiController', function($scope) {
-    var person = new Person({weight: 80, height: 186});
-    person.calculate_bmi_met();
-    $scope.person = person;
 
+    $scope.data = {};
+    $scope.calculateBMI = function(){
+      var person = new Person({weight: $scope.data.weight, height: $scope.data.height});
+      person.calculate_bmi_met();
+      $scope.person = person;
+    };
 
   });
