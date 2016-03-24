@@ -1,16 +1,31 @@
 <ion-view title="BMI Calculator">
   <ion-content>
-    <label for="weight">Weight</label>
-    <input id="weight" type="number" class="item item-input" ng-model="data.weight">
-    <label for="height">Height</label>
-    <input id="height" type="number" class="item item-input" ng-model="data.height">
-    <button class="button button-calm" ng-click="calculateBMI()">Send</button>
-    <div ng-if="person">
-      <p>Person: Weight {{person.weight}}, Height {{person.height}}</p>
-      <p>BMI: {{person.bmiValue}}</p>
-      <p><strong>You are {{person.bmiMessage}}</strong></p>
+    <div class="row">
+      <div class="col">
+        <div class="list">
+          <label class="item item-input">
+            <input type="number" class="item item-input" placeholder="Weight" ng-model="data.weight">
+          </label>
+          <label class="item item-input">
+            <input type="number" class="item item-input" placeholder="Height" ng-model="data.height">
+          </label>
+            <button class="button button-full button-calm" ng-click="calculateBMI()">Send</button>
+        </div>
+
+
+        <div class="card" ng-if="person">
+          <div class="item item-divider">
+            BMI Calculation
+          </div>
+          <div class="item item-text-wrap">
+            <p>Person: Weight {{person.weight}}, Height {{person.height}}</p>
+            <p>BMI: {{person.bmiValue}}</p>
+            <p><strong>You are {{person.bmiMessage}}</strong></p>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <h4 ng-controller="AboutController">{{aboutMessage}}</h4>
 
   </ion-content>
 </ion-view>
