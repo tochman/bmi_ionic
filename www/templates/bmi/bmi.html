@@ -1,10 +1,28 @@
 <ion-view title="BMI Calculator">
-  <ion-content>
-    <label for="weight">Weight</label>
-    <input id="weight" type="number" class="item item-input" ng-model="data.weight">
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <div class="list card">
+      <div class="item item-divider">Weight</div>
+      <div class="item item-body">
+        <form class="list">
+          <ion-item class="range range-positive" >
+            <input id="weight" name ="weight" type="range" value="" min="20" max="120"  ng-model="data.weight" oninput="this.form.amountInput.value=this.value">
+          </ion-item>
+          <input type="number" name="amountInput" min="0" max="20" value=" " oninput="this.form.weight.value=this.value" />
+
+        </form>
+      </div>
+      <div class="item item-divider">in kg</div>
+      </form>
+
+    </div>
+
+    <!--<label for="weight">Weight</label>-->
+    <!--<input id="weight" type="number" class="item item-input" ng-model="data.weight">-->
     <label for="height">Height</label>
     <input id="height" type="number" class="item item-input" ng-model="data.height">
-    <button class="button button-calm" ng-click="calculateBMI()">Send</button>
+    <a ui-sref="/bmi/result" id="bMIDefaultPage-button2" class="button button-positive  button-block" ng-click="calculateBMI()">Calculate</a>
+
+    <button class="button button-calm" ng-click="calculateBMI()" >Send</button>
     <div ng-if="person">
       <p>Person: Weight {{person.weight}}, Height {{person.height}}</p>
       <p>BMI: {{person.bmiValue}}</p>
@@ -14,3 +32,31 @@
 
   </ion-content>
 </ion-view>
+
+<!--<ion-view title="BMI Calculator" >-->
+  <!--<ion-content overflow-scroll="true" padding="true" class="has-header">-->
+    <!--<div class="list card">-->
+      <!--<div class="item item-divider">Weight</div>-->
+      <!--<div class="item item-body">-->
+        <!--<form class="list">-->
+          <!--<ion-item class="range range-positive" >-->
+            <!--<input id="weight" type="range" value="" min="20" max="120"  ng-model="data.weight">-->
+          <!--</ion-item>-->
+        <!--</form>-->
+      <!--</div>-->
+      <!--<div class="item item-divider">in kg</div>-->
+    <!--</div>-->
+    <!--<div class="list card">-->
+      <!--<div class="item item-divider">Hight</div>-->
+      <!--<div class="item item-body">-->
+        <!--<form class="list">-->
+          <!--<ion-item class="range range-positive">-->
+            <!--<input type="range" value="" min="60" max="220" name="hight">-->
+          <!--</ion-item>-->
+        <!--</form>-->
+      <!--</div>-->
+      <!--<div class="item item-divider">in cm</div>-->
+    <!--</div>-->
+    <!--<a ui-sref="tabsController.result" id="bMIDefaultPage-button2" class="button button-positive  button-block">Calculate</a>-->
+  <!--</ion-content>-->
+<!--</ion-view>-->

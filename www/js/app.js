@@ -41,22 +41,22 @@ angular.module('bmi_calculator', ['ionic', 'bmi_calculator.controllers', 'bmi_ca
       // Each tab has its own nav history stack:
 
 
-      .state('tab.about', {
-        url: '/about',
-        views: {
-          'tab-about': {
-            templateUrl: 'templates/about/about.html',
-            controller: 'AboutController'
-          }
-        }
-      })
-
       .state('tab.bmi', {
         url: '/bmi',
         views: {
           'tab-bmi': {
             templateUrl: 'templates/bmi/bmi.html',
             controller: 'BmiController'
+          }
+        }
+      })
+
+      .state('tab.about', {
+        url: '/about',
+        views: {
+          'tab-about': {
+            templateUrl: 'templates/about/about.html',
+            controller: 'AboutController'
           }
         }
       });
