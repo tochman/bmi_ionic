@@ -1,31 +1,24 @@
 <ion-view title="BMI Calculator">
   <ion-content overflow-scroll="true" padding="true" class="has-header">
-    <div class="list card">
+    <div class="list list-inset">
       <div class="item item-divider">Weight in kg</div>
-      <div class="item item-body">
-        <form class="list">
-          <ion-item class="range range-positive">
-            <output name="amount" for ="weight"></output>
-            <input id="weight" type="range" value="60" min="20" max="120" ng-model="data.weight"
-                   oninput="amount.value=weight.value">
-          </ion-item>
-        </form>
-      </div>
+      <form class="item range range-positive">
+        <output name="amount" for="weight"></output>
+        <input id="weight" name="weight" type="range" value="60" min="20" max="120" ng-model="data.weight"
+               oninput="amount.value=weight.value">
+      </form>
     </div>
-    <div class="list card">
+    <div class="list list-inset">
       <div class="item item-divider">Height in cm</div>
-      <div class="item item-body">
-        <form class="list">
-          <ion-item class="range range-positive">
-            <output name="amount" for ="sex"></output>
-            <input id="sex" type="range" value=" " min="60" max="210" ng-model="data.height"
-                   oninput="amount.value=sex.value">
-          </ion-item>
-        </form>
-      </div>
+      <form class="item range range-positive">
+        <output name="amount" for="sex"></output>
+        <input id="sex" name="height" type="range" value=" " min="60" max="210" ng-model="data.height"
+               oninput="amount.value=sex.value">
+      </form>
     </div>
-    <a ui-sref="/bmi/result" id="bMIDefaultPage-button2" class="button button-positive  button-block"
-       ng-click="calculateBMI()">Calculate</a>
+    <a href="www.google.com" id="bMIDefaultPage-button2"
+       class="icon-right ion-android-arrow-forward button button-positive  button-block"
+       ng-click="calculateBMI()"> Calculate</a>
 
     <button class="button button-calm" ng-click="calculateBMI()">Send</button>
     <div ng-if="person">
