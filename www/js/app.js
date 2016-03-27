@@ -32,7 +32,7 @@ angular.module('bmi_calculator', ['ionic', 'bmi_calculator.controllers', 'bmi_ca
     $stateProvider
 
     // setup an abstract state for the tabs directive
-      .state('tab', {
+      .state('tabs', {
         url: '/tab',
         abstract: true,
         templateUrl: 'templates/tabs.html'
@@ -40,8 +40,17 @@ angular.module('bmi_calculator', ['ionic', 'bmi_calculator.controllers', 'bmi_ca
 
       // Each tab has its own nav history stack:
 
+      .state('tabs.cover', {
+        url: '/cover',
+        views: {
+          'tab-cover': {
+            templateUrl: 'templates/cover/cover_page.html',
+            // controller: 'BmiController'
+          }
+        }
+      })
 
-      .state('tab.bmi', {
+      .state('tabs.bmi', {
         url: '/bmi',
         views: {
           'tab-bmi': {
@@ -51,7 +60,7 @@ angular.module('bmi_calculator', ['ionic', 'bmi_calculator.controllers', 'bmi_ca
         }
       })
 
-      .state('tab.about', {
+      .state('tabs.about', {
         url: '/about',
         views: {
           'tab-about': {

@@ -5,6 +5,10 @@ navigation history that also transitions its views in and out.
 -->
 <ion-view title="Tabs Controller" id="page1">
   <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+    <!-- CoverTab -->
+    <ion-tab title="Home" icon-off="ion-ios-home" icon-on="ion-ios-home" href="#/tab/cover">
+      <ion-nav-view name="tab-cover"></ion-nav-view>
+    </ion-tab>
     <!-- BmiTab -->
     <ion-tab title="BMI Calculator" icon-off="ion-ios-settings" icon-on="ion-ios-settings-strong" href="#/tab/bmi">
       <ion-nav-view name="tab-bmi"></ion-nav-view>

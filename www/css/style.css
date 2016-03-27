@@ -1,2 +1,18 @@
 /* Empty. Add your own CSS if you like */
 
+.splash {
+  background: url("../img/egg.png") no-repeat center fixed ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.branding {
+  width: 75%;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: 40px;
+  text-align: center;
+
+}
