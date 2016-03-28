@@ -16,3 +16,17 @@
   text-align: center;
 
 }
+
+.my_list {
+background-color: transparent;
+}
+
+.list .item-radio input:checked ~ .item-content, .list .item-radio .item-content    {
+  padding: 10px;
+  background-color: #FFB463;
+  color: #1A18E6;
+}
+
+.list .item-radio .radio-icon    {
+  color: #1A18E6;
+}

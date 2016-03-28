@@ -60,6 +60,16 @@ angular.module('bmi_calculator', ['ionic', 'bmi_calculator.controllers', 'bmi_ca
         }
       })
 
+      .state('tabs.result', {
+        url: '/bmi/result',
+        views: {
+          'tab-bmi': {
+            templateUrl: 'templates/bmi/result.html',
+            controller: 'BmiController'
+          }
+        }
+      })
+
       .state('tabs.about', {
         url: '/about',
         views: {

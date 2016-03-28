@@ -16,11 +16,16 @@
                oninput="amount.value=sex.value">
       </form>
     </div>
-    <a ui-sref="tabs.bmi.result" id="bMIDefaultPage-button2"
+
+    <a ion-item ng-class="icon-right ion-android-arrow-forward button button-positive  button-block"
+       ng-click="calculateBMI()" href="tabs/bmi/result"> Calculate</a>
+
+    <a href="../bmi/result.html" id="bMIDefaultPage-button2"
        class="icon-right ion-android-arrow-forward button button-positive  button-block"
        ng-click="calculateBMI()"> Calculate</a>
 
     <button class="button button-calm" ng-click="calculateBMI()">Send</button>
+
     <div ng-if="person">
       <p>Person: Weight {{person.weight}}, Height {{person.height}}</p>
       <p>BMI: {{person.bmiValue}}</p>

@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view hide-nav-bar="true">
   <ion-content class="splash padding">
     <div>
 
@@ -6,19 +6,24 @@
     <div class="branding">
       <div class="tagline" style="color:#1a18e6; font-size:260%; font-style: italic" ><p><i>In for summer!</i></p></div>
       <img src="img/orange.png" alt="BMI" height="100" width="100" align="center">
-      <p style="color:#e68811; font-size:150%">Getting in <italic style="font-size:180%; color:#1a18e6">shape</italic> is a long walk, it begins with knowing how far you are where BMi index play big role.</p>
-    </div>
-    <form class="list" >
-      <label class="item item-select" style="background-color: #e68811" >
-        <span class="input-label">Measurement</span>
-        <select>
-          <option>Metric</option>
+      <p style="color:#ffb463; font-size:150%">Getting in <italic style="font-size:180%; color:#1a18e6">  shape  </italic> is a long walk, We help you knowing how far it is and walk together toward your desired BMI </p>
+      <p style="color:#ffb463; font-size:150%">Select measurement</p>
 
-          <option>Imperial</option>
-        </select>
-      </label>
-    </form>
-    <a ui-sref="tabs.bmi" id="coverPage-button1" class="button button-positive  button-block">Lets do it!</a>
+    </div>
+
+  <ion class="list" ng-controller="CoverController" >
+      <!--<div class="item item-divider my_list">Measurement : {{ data.measurement }}-->
+      <ion-radio ng-repeat="item in measurment_option"
+                 ng-value="item.value"
+                 ng-model="data.measurement">
+        {{ item.text }}
+      </ion-radio>
+      <!--</div>-->
+    </ion>
+
+
+    <a ui-sref="tabs.bmi" id="coverPage-button1" class="button button-energized  button-outline button-block">Lets do it!</a>
+
 
   </ion-content>
 </ion-view>

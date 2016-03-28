@@ -5,13 +5,25 @@ angular.module('bmi_calculator.controllers', [])
     $scope.users = Users;
   })
 
-  .controller('BmiController', function($scope) {
+  .controller('BmiController', function ($scope) {
 
     $scope.data = {};
-    $scope.calculateBMI = function(){
+    $scope.calculateBMI = function () {
       var person = new Person({weight: $scope.data.weight, height: $scope.data.height});
       person.calculate_bmi_met();
       $scope.person = person;
+    };
+
+  })
+
+  .controller('CoverController', function ($scope) {
+
+    $scope.measurment_option = [
+      {text: "Metric", value: "metric"},
+      {text: "Imperial", value: "imperial"},
+    ];
+    $scope.data = {
+      measurment: 'ng'
     };
 
   });
