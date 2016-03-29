@@ -11,10 +11,30 @@ angular.module('bmi_calculator.controllers', [])
     $scope.calculateBMI = function () {
       var person = new Person({weight: $scope.data.weight, height: $scope.data.height});
       person.calculate_bmi_met();
-      $scope.person = person;
+      $scope.person = person
+
     };
 
   })
+
+  //
+  // .controller('BmiController', function ($scope) {
+  //
+  //   $scope.data = {};
+  //   $scope.data.measurement = '';
+  //
+  //   $scope.calculateBMI = ('data.measurement', function () {
+  //     var person = new Person({weight: $scope.data.weight, height: $scope.data.height});
+  //
+  //     if($scope.data.measurement== "metric")
+  //       person.calculate_bmi_met();
+  //     $scope.person = person;
+  //     else
+  //     person.calculate_bmi_imp();
+  //     $scope.person = person;
+  //   });
+  //
+  // })
 
   .controller('CoverController', function ($scope) {
 
@@ -23,7 +43,7 @@ angular.module('bmi_calculator.controllers', [])
       {text: "Imperial", value: "imperial"},
     ];
     $scope.data = {
-      measurment: 'ng'
+      measurement: 'ng'
     };
 
   });
