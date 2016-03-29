@@ -1,17 +1,16 @@
 <ion-view title="BMI Calculator">
   <ion-content overflow-scroll="true" padding="true" class="has-header">
-    <div ng-if="method == 'metric'">
       <form name="form">
         <div class="list list-inset">
-          <div class="item item-divider">Weight in kg</div>
+          <div class="item item-divider">Weight in {{method == 'metric' ? "kg" : "Pound"}}</div>
           <div class="item range range-positive">
             <output name="wamount" for="weight"></output>
             <input id="weight"
             name="weight"
             type="range"
-            value=""
-            min="20"
-            max="120"
+            value="{{method == 'metric' ? '80' : '178'}}"
+            min="{{method == 'metric' ? '25' : '55'}}"
+            max="{{method == 'metric' ? '135' : '300'}}"
             ng-model="data.weight"
             oninput="wamount.value=weight.value"
             required>
@@ -19,15 +18,15 @@
         </div>
 
         <div class="list list-inset">
-          <div class="item item-divider">Height in cm</div>
+          <div class="item item-divider">Height in {{method == 'metric' ? "Cm" : "Inch"}}</div>
           <div class="item range range-positive">
             <output name="hamount" for="myheight"></output>
             <input id="myheight"
             name="height"
             type="range"
-            value=" "
-            min="60"
-            max="210"
+            value="{{method == 'metric' ? '135' : '52'}}"
+            min="{{method == 'metric' ? '60' : '23'}}"
+            max="{{method == 'metric' ? '210' : '82'}}"
             ng-model="data.height"
             oninput="hamount.value=myheight.value"
             required>
@@ -37,32 +36,7 @@
         ng-click="calculateBMI()"
         ng-disabled="form.$invalid" > Calculate</button>
       </form>
-
-
-    </div>
-
-    <div ng-if="method == 'imperial'">
-      <div class="list list-inset">
-        <div class="item item-divider">Weight in pounds</div>
-        <form class="item range range-positive">
-          <output name="amount" for="weight"></output>
-          <input id="weight" name="weight" type="range" value="60" min="20" max="120" ng-model="data.weight" oninput="amount.value=weight.value">
-        </form>
-      </div>
-
-      <div class="list list-inset">
-        <div class="item item-divider">Height in feet</div>
-        <form class="item range range-positive">
-          <output name="amount" for="sex"></output>
-          <input id="sex" name="height" type="range" value=" " min="60" max="210" ng-model="data.height" oninput="amount.value=sex.value">
-        </form>
-      </div>
-
-    </div>
-
-
     <div ng-if="person">
-
       <div class="list list-inset">
         <div class="item item-divider">Your BMI is: {{person.bmiValue}}</div>
         <a class="item item-thumbnail-left item-text-wrap" href="#">
@@ -70,10 +44,6 @@
           <h2>You are {{person.bmiMessage}}</h2>
           <p><strong>You are {{person.bmiBrief}}</strong></p>
         </a>
-
-        <!--<p>Weight {{person.weight}}, Height {{person.height}}</p>-->
-        <!--<p>BMI: {{person.bmiValue}}</p>-->
-        <!--<p><strong>You are {{person.bmiMessage}}</strong></p>-->
       </div>
       <h4 ng-controller="AboutController">{{aboutMessage}}</h4>
     </div>
