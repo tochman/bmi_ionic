@@ -4,25 +4,30 @@
 
     </div>
     <div class="branding">
-      <div class="tagline" style="color:#1a18e6; font-size:260%; font-style: italic" ><p><i>In for summer!</i></p></div>
+      <div class="tagline" style="color:#1a18e6; font-size:260%; font-style: italic"><p><i>In for summer!</i></p></div>
       <img src="img/orange.png" alt="BMI" height="100" width="100" align="center">
-      <p style="color:#ffb463; font-size:150%">Getting in <italic style="font-size:180%; color:#1a18e6">  shape  </italic> is a long walk, We help you knowing how far it is and walk together toward your desired BMI </p>
+      <p style="color:#ffb463; font-size:150%">Getting in
+        <italic style="font-size:180%; color:#1a18e6"> shape</italic>
+        is a long walk, We help you knowing how far it is and walk together toward your desired BMI
+      </p>
 
     </div>
-<div style="margin-top: 180px;">
-  <p style="color:#ffb463; font-size:150%">Measurement : {{ data.measurement }}</p>
+    <div style="margin-top: 130px;">
+      <p style="color:#ffb463; font-size:150%">Measurement : {{ data.measurement }}</p>
+      <ion class="list">
+        <ion-radio ng-repeat="item in measurment_option"
+                   ng-value="item.value"
+                   ng-model="data.measurement">
+          {{ item.text }}
+        </ion-radio>
 
-  <ion class="list" >
-      <ion-radio ng-repeat="item in measurment_option"
-                 ng-value="item.value"
-                 ng-model="data.measurement">
-        {{ item.text }}
-      </ion-radio>
-    </ion>
-</div>
+      <button class="button button-energized  button-outline button-block"
+              ng-click="changeMethod()"
+              ng-disabled="!data.measurement"
+      >Lets do it!</button>
+      </ion>
 
-
-    <a id="coverPage-button1" class="button button-energized  button-outline button-block" ng-click="changeMethod();">Lets do it!</a>
+    </div>
 
 
   </ion-content>
