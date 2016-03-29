@@ -8,6 +8,7 @@
                oninput="amount.value=weight.value">
       </form>
     </div>
+
     <div class="list list-inset">
       <div class="item item-divider">Height in cm</div>
       <form class="item range range-positive">
@@ -17,21 +18,24 @@
       </form>
     </div>
 
-    <a ion-item ng-class="icon-right ion-android-arrow-forward button button-positive  button-block"
-       ng-click="calculateBMI()" href="tabs/bmi/result"> Calculate</a>
-
-    <a href="../bmi/result.html" id="bMIDefaultPage-button2"
-       class="icon-right ion-android-arrow-forward button button-positive  button-block"
-       ng-click="calculateBMI()"> Calculate</a>
-
-    <button class="button button-calm" ng-click="calculateBMI()">Send</button>
-
+    <a ion-item class="icon-right ion-android-arrow-forward button button-positive  button-block"
+       ng-click="calculateBMI()" href="#"> Calculate</a>
     <div ng-if="person">
-      <p>Person: Weight {{person.weight}}, Height {{person.height}}</p>
-      <p>BMI: {{person.bmiValue}}</p>
-      <p><strong>You are {{person.bmiMessage}}</strong></p>
+
+    <div class="list list-inset">
+      <div class="item item-divider">Your BMI is: {{person.bmiValue}}</div>
+      <a class="item item-thumbnail-left item-text-wrap" href="#" >
+        <img src={{person.bmiPicture}}>
+        <h2>You are {{person.bmiMessage}}</h2>
+        <p><strong>You are {{person.bmiBrief}}</strong></p>
+      </a>
+
+      <!--<p>Weight {{person.weight}}, Height {{person.height}}</p>-->
+      <!--<p>BMI: {{person.bmiValue}}</p>-->
+      <!--<p><strong>You are {{person.bmiMessage}}</strong></p>-->
     </div>
     <h4 ng-controller="AboutController">{{aboutMessage}}</h4>
+    </div>
 
   </ion-content>
 </ion-view>
