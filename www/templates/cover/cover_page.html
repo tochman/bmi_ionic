@@ -11,7 +11,7 @@
 
     </div>
 
-  <ion class="list" ng-controller="CoverController" >
+  <ion class="list" >
       <!--<div class="item item-divider my_list">Measurement : {{ data.measurement }}-->
       <ion-radio ng-repeat="item in measurment_option"
                  ng-value="item.value"
@@ -22,7 +22,7 @@
     </ion>
 
 
-    <a ui-sref="tabs.bmi" id="coverPage-button1" class="button button-energized  button-outline button-block">Lets do it!</a>
+    <a id="coverPage-button1" class="button button-energized  button-outline button-block" ng-click="changeMethod();">Lets do it!</a>
 
 
   </ion-content>

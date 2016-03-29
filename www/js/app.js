@@ -45,13 +45,16 @@ angular.module('bmi_calculator', ['ionic', 'bmi_calculator.controllers', 'bmi_ca
         views: {
           'tab-cover': {
             templateUrl: 'templates/cover/cover_page.html',
-            // controller: 'BmiController'
+            controller: 'CoverController'
           }
         }
       })
 
       .state('tabs.bmi', {
         url: '/bmi',
+        params: {
+          method: {}
+        },
         views: {
           'tab-bmi': {
             templateUrl: 'templates/bmi/bmi.html',
@@ -81,6 +84,6 @@ angular.module('bmi_calculator', ['ionic', 'bmi_calculator.controllers', 'bmi_ca
       });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/bmi');
+    $urlRouterProvider.otherwise('/tab/cover');
 
   });

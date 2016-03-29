@@ -1,49 +1,66 @@
 angular.module('bmi_calculator.controllers', [])
 
-  .controller('AboutController', function ($scope, Users) {
-    $scope.aboutMessage = "Coded by Thomas and Mazen";
-    $scope.users = Users;
-  })
+.controller('AboutController', function($scope, Users) {
+  $scope.aboutMessage = "Coded by Thomas and Mazen";
+  $scope.users = Users;
+})
 
-  .controller('BmiController', function ($scope) {
+.controller('BmiController', function($scope, $state, $stateParams) {
 
-    $scope.data = {};
-    $scope.calculateBMI = function () {
-      var person = new Person({weight: $scope.data.weight, height: $scope.data.height});
+  $scope.method = $stateParams.method
+  console.log($scope.method)
+  $scope.data = {};
+  $scope.calculateBMI = function() {
+    var person = new Person({
+      weight: $scope.data.weight,
+      height: $scope.data.height
+    });
+    console.log($scope.method);
+    if ($scope.method == 'metric'){
       person.calculate_bmi_met();
-      $scope.person = person
+    } else {
+      person.calculate_bmi_imp();
+    }
 
-    };
+    $scope.person = person
 
-  })
+  };
 
-  //
-  // .controller('BmiController', function ($scope) {
-  //
-  //   $scope.data = {};
-  //   $scope.data.measurement = '';
-  //
-  //   $scope.calculateBMI = ('data.measurement', function () {
-  //     var person = new Person({weight: $scope.data.weight, height: $scope.data.height});
-  //
-  //     if($scope.data.measurement== "metric")
-  //       person.calculate_bmi_met();
-  //     $scope.person = person;
-  //     else
-  //     person.calculate_bmi_imp();
-  //     $scope.person = person;
-  //   });
-  //
-  // })
+})
 
-  .controller('CoverController', function ($scope) {
+//
+// .controller('BmiController', function ($scope) {
+//
+//   $scope.data = {};
+//   $scope.data.measurement = '';
+//
+//   $scope.calculateBMI = ('data.measurement', function () {
+//     var person = new Person({weight: $scope.data.weight, height: $scope.data.height});
+//
+//     if($scope.data.measurement== "metric")
+//       person.calculate_bmi_met();
+//     $scope.person = person;
+//     else
+//     person.calculate_bmi_imp();
+//     $scope.person = person;
+//   });
+//
+// })
 
-    $scope.measurment_option = [
-      {text: "Metric", value: "metric"},
-      {text: "Imperial", value: "imperial"},
-    ];
-    $scope.data = {
-      measurement: 'ng'
-    };
+.controller('CoverController', function($scope, $state) {
+  $scope.data = {};
+  $scope.measurment_option = [{
+    text: "Metric",
+    value: "metric"
+  }, {
+    text: "Imperial",
+    value: "imperial"
+  }, ];
 
-  });
+  $scope.changeMethod = function() {
+    $state.go('tabs.bmi', {
+      method: $scope.data.measurement
+    });
+  };
+
+});
