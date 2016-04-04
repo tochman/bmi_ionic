@@ -29,12 +29,12 @@ function setBMIMessage (obj, value){
   if (obj.bmiValue > 18.5 && obj.bmiValue < 25) {
     obj.bmiMessage = "Normal"
     obj.bmiPicture = "img/m.png"
-    obj.bmiBrief = "Normal, does not means perfect, some finetunning here and there ... but you almost there"
+    obj.bmiBrief = "Normal, does not means perfect, some fine tuning here and there ... but you almost there"
   }
   if (obj.bmiValue > 25 && obj.bmiValue < 30) {
     obj.bmiMessage = "Overweight"
     obj.bmiPicture = "img/l.png"
-    obj.bmiBrief = "Everyone loves the curvy style, lets make sure its in the correct places, some finetunning to be good on the long run"
+    obj.bmiBrief = "Everyone loves the curvy style, lets make sure its in the correct places, some fine tuning to be good on the long run"
   }
   if (obj.bmiValue > 30) {
     obj.bmiMessage = "Obese"
